@@ -1,8 +1,8 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_turn/extensions/themedata_ext.dart';
 import 'package:your_turn/style/component/custom_button.dart';
-import 'package:your_turn/style/resources/button_padding.dart';
 import 'package:your_turn/style/resources/button_size.dart';
 import 'package:your_turn/style/resources/palette.dart';
 
@@ -11,17 +11,16 @@ class CustomTextButton extends ConsumerWidget {
     super.key,
     ButtonSize? width,
     ButtonSize? height,
-    ButtonPadding? margin,
     double? fontSize,
     bool? isDisabled,
-    required this.title,
     Color? backgroundColor,
     Color? hoverColor,
     Color? splashColor,
+    required this.margin,
+    required this.title,
     required this.onPressed,
   })  : width = width ?? ButtonSize.small,
         height = height ?? ButtonSize.small,
-        margin = margin ?? ButtonPadding.small,
         fontSize = fontSize ?? 12,
         isDisabled = isDisabled ?? false,
         backgroundColor = backgroundColor ?? Palette.primary,
@@ -30,7 +29,7 @@ class CustomTextButton extends ConsumerWidget {
 
   final ButtonSize width;
   final ButtonSize height;
-  final ButtonPadding margin;
+  final EdgeInsetsGeometry? margin;
   final double fontSize;
   final bool isDisabled;
   final String title;
