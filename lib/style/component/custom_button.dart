@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_turn/extensions/themedata_ext.dart';
-import 'package:your_turn/style/resources/button_padding.dart';
 import 'package:your_turn/style/resources/button_size.dart';
 
 class CustomButton extends ConsumerWidget {
@@ -20,13 +19,14 @@ class CustomButton extends ConsumerWidget {
 
   final ButtonSize width;
   final ButtonSize height;
-  final ButtonPadding margin;
+  // final ButtonPadding margin;
   final bool isDisabled;
   final Color color;
   final Color hoverColor;
   final Color splashColor;
   final VoidCallback onPressed;
   final Widget child;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -38,9 +38,7 @@ class CustomButton extends ConsumerWidget {
         child: Container(
           width: width.getSize(),
           height: height.getSize(),
-          margin: EdgeInsets.all(
-            margin.getPadding() * 0.75,
-          ),
+          margin: margin,
           decoration: BoxDecoration(
             /// isDisabled 시 색 조정
             color: isDisabled ? ref.theme.color.inactive : color,
