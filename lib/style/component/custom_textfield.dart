@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_turn/extensions/themedata_ext.dart';
@@ -5,20 +6,30 @@ import 'package:your_turn/extensions/themedata_ext.dart';
 class CustomTextField extends ConsumerWidget {
   const CustomTextField({
     Key? key,
+    bool? isObscure,
     required this.title,
     required this.controller,
     required this.onChanged,
-  }) : super(key: key);
+    required this.icon,
+  })  : isObscure = isObscure ?? false,
+        super(key: key);
+
   final String title;
   final TextEditingController controller;
   final void Function(String? value) onChanged;
+  final IconData icon;
+  final bool isObscure;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      margin: const EdgeInsets.all(5),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 5,
+      ),
       child: TextField(
         controller: controller,
+        obscureText: isObscure,
 
         onChanged: onChanged,
 
@@ -28,10 +39,17 @@ class CustomTextField extends ConsumerWidget {
         ),
 
         decoration: InputDecoration(
+          /// icon
+          prefixIcon: Icon(
+            icon,
+            color: ref.theme.color.onHintContainer,
+          ),
+
+          /// 레이블
           labelText: title,
           labelStyle: ref.theme.font.body2.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+              fontWeight: FontWeight.bold,
+              color: ref.theme.color.onHintContainer),
           hintText: title,
           hintStyle: ref.theme.font.hintBody12,
           fillColor: ref.theme.color.background,
