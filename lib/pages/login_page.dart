@@ -5,6 +5,7 @@ import 'package:your_turn/style/component/custom_text_button.dart';
 import 'package:your_turn/style/component/custom_textfield.dart';
 import 'package:your_turn/style/resources/button_size.dart';
 import 'package:your_turn/style/resources/palette.dart';
+import 'package:your_turn/util/lang/generated/l10n.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
@@ -29,7 +30,7 @@ class LoginPage extends ConsumerWidget {
               Container(
                 margin: const EdgeInsets.all(30),
                 child: Text(
-                  "로그인",
+                  S.current.login,
                   style: ref.theme.font.headline2,
                 ),
               ),
@@ -37,7 +38,7 @@ class LoginPage extends ConsumerWidget {
               /// id text fiedl
               CustomTextField(
                 icon: Icons.account_box_rounded,
-                title: "아이디",
+                title: S.current.id,
                 controller: idController,
                 onChanged: (value) {},
               ),
@@ -45,7 +46,7 @@ class LoginPage extends ConsumerWidget {
               /// password text field
               CustomTextField(
                 icon: Icons.lock,
-                title: "비밀번호",
+                title: S.current.passowrd,
                 controller: pwController,
                 onChanged: (value) {},
                 isObscure: true,
@@ -62,7 +63,7 @@ class LoginPage extends ConsumerWidget {
                 ),
                 height: ButtonSize.medium,
                 width: ButtonSize.infinity,
-                title: "로그인",
+                title: S.current.login,
                 fontSize: 20,
                 onPressed: () {},
               ),
@@ -72,11 +73,11 @@ class LoginPage extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "회원이 아니신가요? ",
+                    S.current.not_a_member,
                     style: ref.theme.font.boldbody1,
                   ),
                   Text(
-                    "지금 등록 하기",
+                    S.current.register_now,
                     style: ref.theme.font.boldbody1.copyWith(
                       color: Palette.primary,
                     ),
