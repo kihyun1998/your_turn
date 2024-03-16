@@ -1,7 +1,8 @@
 enum ButtonPadding {
   small,
   medium,
-  large;
+  large,
+  large20;
 
   double getPadding() {
     switch (this) {
@@ -11,6 +12,8 @@ enum ButtonPadding {
         return 10;
       case ButtonPadding.large:
         return 15;
+      case ButtonPadding.large20:
+        return 20;
     }
   }
 }
