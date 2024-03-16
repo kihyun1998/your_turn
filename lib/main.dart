@@ -23,6 +23,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: 'Your turn',
+      debugShowCheckedModeBanner: false,
 
       /// 테마 설정
       theme: ref.themeData,
