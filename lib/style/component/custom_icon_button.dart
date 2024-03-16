@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_turn/extensions/themedata_ext.dart';
 import 'package:your_turn/style/component/custom_button.dart';
-import 'package:your_turn/style/resources/button_padding.dart';
 import 'package:your_turn/style/resources/button_size.dart';
 import 'package:your_turn/style/resources/icon_size.dart';
 import 'package:your_turn/style/resources/palette.dart';
@@ -12,18 +11,17 @@ class CustomIconButton extends ConsumerWidget {
     super.key,
     ButtonSize? width,
     ButtonSize? height,
-    ButtonPadding? margin,
     IconSize? iconSize,
     bool? isDisabled,
     Color? backgroundColor,
     Color? hoverColor,
     Color? splashColor,
     Color? iconColor,
+    required this.margin,
     required this.icon,
     required this.onPressed,
   })  : width = width ?? ButtonSize.small,
         height = height ?? ButtonSize.small,
-        margin = margin ?? ButtonPadding.small,
         iconSize = iconSize ?? IconSize.medium,
         isDisabled = isDisabled ?? false,
         backgroundColor = backgroundColor ?? Palette.primary,
@@ -33,7 +31,7 @@ class CustomIconButton extends ConsumerWidget {
 
   final ButtonSize width;
   final ButtonSize height;
-  final ButtonPadding margin;
+  final EdgeInsetsGeometry? margin;
   final bool isDisabled;
   final Color backgroundColor;
   final Color hoverColor;
