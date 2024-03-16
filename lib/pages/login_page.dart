@@ -19,13 +19,20 @@ class LoginPage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              /// text
-              Text(
-                "로그인",
-                style: ref.theme.font.headline1,
+              Icon(
+                Icons.all_inclusive,
+                color: ref.theme.color.text,
+                size: 100,
               ),
 
-              const SizedBox(height: 40),
+              /// text
+              Container(
+                margin: const EdgeInsets.all(30),
+                child: Text(
+                  "로그인",
+                  style: ref.theme.font.headline2,
+                ),
+              ),
 
               /// id text fiedl
               CustomTextField(
