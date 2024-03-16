@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "960900236512",
+    "project_id": "your-tern",
+    "storage_bucket": "your-tern.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960900236512:android:18b906b92fa3b0057bfc85",
+        "android_client_info": {
+          "package_name": "kr.co.kihyun.your_turn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgvj_jlsJ5i7XBs1TvZJrJU8hFroFTaN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
