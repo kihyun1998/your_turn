@@ -42,16 +42,21 @@ class CustomTextField extends ConsumerWidget {
           /// icon
           prefixIcon: Icon(
             icon,
-            color: ref.theme.color.onHintContainer,
+            color: ref.theme.color.primary,
           ),
 
           /// 레이블
           labelText: title,
-          labelStyle: ref.theme.font.body2.copyWith(
-              fontWeight: FontWeight.bold,
-              color: ref.theme.color.onHintContainer),
+          labelStyle: ref.theme.font.boldbody2.copyWith(
+            color: ref.theme.color.onHintContainer,
+          ),
+          floatingLabelStyle: ref.theme.font.boldbody2,
+
+          /// 힌트 문자
           hintText: title,
           hintStyle: ref.theme.font.hintBody12,
+
+          /// 색
           fillColor: ref.theme.color.background,
           filled: true,
           isDense: true,
