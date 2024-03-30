@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_turn/extensions/themedata_ext.dart';
-import 'package:your_turn/pages/login_page.dart';
+import 'package:your_turn/pages/login/login_page.dart';
 import 'package:your_turn/util/firebase_options.dart';
 import 'package:your_turn/util/lang/generated/l10n.dart';
 import 'package:your_turn/util/lang/provider/lang_provider.dart';
