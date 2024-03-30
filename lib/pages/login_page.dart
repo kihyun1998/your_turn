@@ -14,77 +14,86 @@ class LoginPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final TextEditingController idController = TextEditingController();
     final TextEditingController pwController = TextEditingController();
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.all_inclusive,
-                color: ref.theme.color.text,
-                size: 100,
-              ),
-
-              /// text
-              Container(
-                margin: const EdgeInsets.all(30),
-                child: Text(
-                  S.current.login,
-                  style: ref.theme.font.headline2,
-                ),
-              ),
-
-              /// id text fiedl
-              CustomTextField(
-                icon: Icons.account_box_rounded,
-                title: S.current.id,
-                controller: idController,
-                onChanged: (value) {},
-              ),
-
-              /// password text field
-              CustomTextField(
-                icon: Icons.lock,
-                title: S.current.passowrd,
-                controller: pwController,
-                onChanged: (value) {},
-                isObscure: true,
-              ),
-
-              /// space
-              const SizedBox(height: 20),
-
-              /// login button
-              CustomTextButton(
-                margin: const EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 20,
-                ),
-                height: ButtonSize.medium,
-                width: ButtonSize.infinity,
-                title: S.current.login,
-                fontSize: 20,
-                onPressed: () {},
-              ),
-
-              /// sigh up text
-              Row(
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: SafeArea(
+        child: Scaffold(
+          /// no overflow by keyboard at using textfield
+          // resizeToAvoidBottomInset: false,
+          body: Center(
+            child: SingleChildScrollView(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    S.current.not_a_member,
-                    style: ref.theme.font.boldbody1,
+                  Icon(
+                    Icons.all_inclusive,
+                    color: ref.theme.color.text,
+                    size: 100,
                   ),
-                  Text(
-                    S.current.register_now,
-                    style: ref.theme.font.boldbody1.copyWith(
-                      color: Palette.primary,
+
+                  /// text
+                  Container(
+                    margin: const EdgeInsets.all(30),
+                    child: Text(
+                      S.current.login,
+                      style: ref.theme.font.headline2,
                     ),
                   ),
+
+                  /// id text fiedl
+                  CustomTextField(
+                    icon: Icons.account_box_rounded,
+                    title: S.current.id,
+                    controller: idController,
+                    onChanged: (value) {},
+                  ),
+
+                  /// password text field
+                  CustomTextField(
+                    icon: Icons.lock,
+                    title: S.current.passowrd,
+                    controller: pwController,
+                    onChanged: (value) {},
+                    isObscure: true,
+                  ),
+
+                  /// space
+                  const SizedBox(height: 20),
+
+                  /// login button
+                  CustomTextButton(
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
+                    ),
+                    height: ButtonSize.medium,
+                    width: ButtonSize.infinity,
+                    title: S.current.login,
+                    fontSize: 20,
+                    onPressed: () {},
+                  ),
+
+                  /// sigh up text
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        S.current.not_a_member,
+                        style: ref.theme.font.boldbody1,
+                      ),
+                      Text(
+                        S.current.register_now,
+                        style: ref.theme.font.boldbody1.copyWith(
+                          color: Palette.primary,
+                        ),
+                      ),
+                    ],
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),
