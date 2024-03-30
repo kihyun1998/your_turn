@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_turn/extensions/themedata_ext.dart';
@@ -72,7 +73,12 @@ class LoginPage extends ConsumerWidget {
                     width: ButtonSize.infinity,
                     title: S.current.login,
                     fontSize: 20,
-                    onPressed: () {},
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: idController.text.trim(),
+                        password: pwController.text.trim(),
+                      );
+                    },
                   ),
 
                   /// sigh up text
