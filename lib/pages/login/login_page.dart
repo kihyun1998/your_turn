@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_turn/extensions/themedata_ext.dart';
+import 'package:your_turn/pages/login/provider/login_textfield_provider.dart';
 import 'package:your_turn/style/component/custom_text_button.dart';
 import 'package:your_turn/style/component/custom_textfield.dart';
 import 'package:your_turn/style/resources/button_size.dart';
@@ -13,8 +14,7 @@ class LoginPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final TextEditingController idController = TextEditingController();
-    final TextEditingController pwController = TextEditingController();
+    final loginTextfieldState = ref.watch(loginTextFieldProvider);
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -47,7 +47,7 @@ class LoginPage extends ConsumerWidget {
                   CustomTextField(
                     icon: Icons.account_box_rounded,
                     title: S.current.id,
-                    controller: idController,
+                    controller: loginTextfieldState.idController,
                     onChanged: (value) {},
                   ),
 
@@ -55,7 +55,7 @@ class LoginPage extends ConsumerWidget {
                   CustomTextField(
                     icon: Icons.lock,
                     title: S.current.passowrd,
-                    controller: pwController,
+                    controller: loginTextfieldState.pwController,
                     onChanged: (value) {},
                     isObscure: true,
                   ),
@@ -75,8 +75,8 @@ class LoginPage extends ConsumerWidget {
                     fontSize: 20,
                     onPressed: () async {
                       await FirebaseAuth.instance.signInWithEmailAndPassword(
-                        email: idController.text.trim(),
-                        password: pwController.text.trim(),
+                        email: loginTextfieldState.idController.text.trim(),
+                        password: loginTextfieldState.pwController.text.trim(),
                       );
                     },
                   ),
